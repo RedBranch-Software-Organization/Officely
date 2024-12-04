@@ -52,6 +52,8 @@ jobs:
           
       - id: verify-sufix
         name: Verify Suffix Version
+        run: |
+          echo "Verify Suffix Version"
 
   build_package:
     name: Build
