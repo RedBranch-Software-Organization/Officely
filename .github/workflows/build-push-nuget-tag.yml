@@ -79,6 +79,6 @@ jobs:
     - name: Pack
       run: dotnet pack -p:PackageVersion=${{ needs.get-version.outputs.package-version }} --version-suffix=${{ needs.get-version.outputs.version-suffix }} --configuration Release
     - name: Add github source
-      run: dotnet nuget add source --username redbranchsoftware --password ${{ secrets.PAT }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/RedBranch-Software-Organization/index.json"
+      run: dotnet nuget add source --username redbranchsoftware --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/RedBranch-Software-Organization/index.json"
     - name: Push
-      run: dotnet nuget push "bin/Release/${{ env.packageName }}.${{ needs.get-version.outputs.package-version }}.nupkg"  --api-key ${{ secrets.PAT }} --source "github"
+      run: dotnet nuget push "bin/Release/${{ env.packageName }}.${{ needs.get-version.outputs.package-version }}.nupkg"  --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
