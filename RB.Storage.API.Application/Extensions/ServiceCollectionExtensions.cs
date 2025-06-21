@@ -5,6 +5,9 @@ using RB.Storage.Infrastructure.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RB.Storage.API.Application.Commands.GetAllUsers;
+using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
+
 
 namespace RB.Storage.API.Application.Extensions;
 
@@ -19,9 +22,19 @@ public static class ServiceCollectionExtensions
     public static async Task AddStorageApiAsync(this IServiceCollection services, IConfiguration configuration, Assembly assembly)
     {
         services.AddOpenApi();
+        services.AddEndpointsApiExplorer();
+        services.AddOpenApiDocument(config =>
+        {
+            config.Title = "RB Storage API";
+            config.Version = "v1.0";
+            config.Description = "API for managing storage operations.";
+            config.DocumentName = "RBStorageApi";
+        });
         services.AddStorageDomain();
         await services.AddStorageInfrastructurAsync(configuration);
         services.AddStorageApiApplication(assembly);
+        services.AddProblemDetails();
+        services.AddApiVersioning();
     }
 }
 

@@ -1,4 +1,4 @@
-@RBStorageApiUrl = http://localhost:5065
+@RBStorageApiUrl = https://localhost:7067
 
 ### Get all users
 GET {{RBStorageApiUrl}}/users
