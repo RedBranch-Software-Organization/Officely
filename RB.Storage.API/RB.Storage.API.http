@@ -1,0 +1,17 @@
+@RBStorageApiUrl = http://localhost:5065
+
+### Get all users
+GET {{RBStorageApiUrl}}/users
+Accept: application/json
+###
+
+
+# POST {{RBStorageApiUrl}}/users/add
+# Content-Type: application/json
+
+# {
+#   "Email": "lukwis95@gmail.com",
+#   "Password": "RBStorage123"
+# }
+
+###
