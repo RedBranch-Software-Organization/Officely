@@ -5,13 +5,12 @@ GET {{RBStorageApiUrl}}/users
 Accept: application/json
 ###
 
-
+# ### Add a new user
 # POST {{RBStorageApiUrl}}/users/add
 # Content-Type: application/json
 
 # {
-#   "Email": "lukwis95@gmail.com",
-#   "Password": "RBStorage123"
+#   "Email": "aniaszadurska@wp.pl",
+#   "Password": "password123*%$",
 # }
-
-###
+# ###

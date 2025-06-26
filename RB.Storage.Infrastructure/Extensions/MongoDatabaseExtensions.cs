@@ -5,6 +5,7 @@ namespace RB.Storage.Infrastructure.Extensions;
 
 public static class MongoDatabaseExtensions
 {
+    //ToDo: Move to RB.SharedKernel
     public static async Task CreateCollectionIfNotExistsAsync(this IMongoDatabase database, string collectionName)
     {
         ArgumentNullException.ThrowIfNull(database);
@@ -18,6 +19,4 @@ public static class MongoDatabaseExtensions
         if (!await collections.AnyAsync())
             await database.CreateCollectionAsync(collectionName);
     }
-
-    
 }

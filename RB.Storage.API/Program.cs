@@ -1,5 +1,6 @@
-using System.Reflection;
+using RB.Storage.API.Application;
 using RB.Storage.API.Application.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
-await builder.RunStorageApiAsync(Assembly.GetExecutingAssembly());
+var storageApi = await StorageApi.BuildAsync();
+storageApi.UseStorageApi();
+await storageApi.RunAsync();

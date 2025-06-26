@@ -19,10 +19,6 @@ public static class WebApplicationExtensions
             app.MapOpenApi();
         }
         app.UseHttpsRedirection();
-
-        // If API versioning is needed, implement or use a supported package here.
-        // var appVersion1 = app.NewVersionedApi();
-
         app.MapRoutes();
     }
 }
