@@ -1,7 +1,7 @@
 namespace RB.Storage.Domain.Aggregates.UserAggregates.Exceptions;
 
 
-public class InvalidEmailException(string paramName) : Exception
+public class InvalidEmailException(string value) : Exception($"Email: {value} must contain '@'.")
 {
 
 }

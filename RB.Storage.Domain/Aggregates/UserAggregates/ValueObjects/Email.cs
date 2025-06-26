@@ -17,8 +17,8 @@ public class Email
 
     private static void Validate(string value)
     {
-        EmailNullException.ThrowIfNull(value);
+        EmailNullException.ThrowIfNullOrWhiteSpace(value);
         if (!value.Contains('@'))
-            throw new ArgumentException("Email must contain '@'.", nameof(value));
+            throw new InvalidEmailException(value);
     }
 }
