@@ -1,8 +1,9 @@
 using MongoDB.Bson.Serialization.Attributes;
+using RB.SharedKernel.MongoDb.Interfaces;
 
 namespace RB.Storage.Infrastructure.Databases.Storage.Documents;
 
-public class UserDocument
+public class UserDocument : IDocument<string>
 {
     [BsonId]
     [BsonElement("id")]

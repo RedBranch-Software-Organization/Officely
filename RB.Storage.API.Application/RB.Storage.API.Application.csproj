@@ -12,6 +12,7 @@
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
     <PackageReference Include="NSwag.AspNetCore" Version="14.4.0" />
+    <PackageReference Include="RB.SharedKernel.MediatR" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>
