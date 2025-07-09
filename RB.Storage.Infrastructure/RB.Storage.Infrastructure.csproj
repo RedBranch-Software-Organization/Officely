@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-    <PackageReference Include="MongoDB.Driver" Version="3.4.0" />
+    <PackageReference Include="RB.SharedKernel.MongoDb" Version="0.1.0-beta.1.2" />
   </ItemGroup>
 
   <ItemGroup>
