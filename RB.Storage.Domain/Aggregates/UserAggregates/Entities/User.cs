@@ -1,18 +1,17 @@
+using RB.SharedKernel;
 using RB.Storage.Domain.Aggregates.UserAggregates.Interfaces;
 using RB.Storage.Domain.Aggregates.UserAggregates.ValueObjects;
 
 namespace RB.Storage.Domain.Aggregates.UserAggregates.Entities;
 
-public class User
+public class User : Entity<Guid>, IAggregateRoot
 {
-    public Guid Id { get; }
     public Email Email { get; }
     public HashedPassword HashedPassword { get; }
     public DateTime CreatedAt { get; }
 
-    private User(Guid id, Email email, HashedPassword hashedPassword, DateTime createdAt)
+    private User(Guid id, Email email, HashedPassword hashedPassword, DateTime createdAt) : base(id)
     {
-        Id = id;
         Email = email;
         HashedPassword = hashedPassword;
         CreatedAt = createdAt;

@@ -1,6 +1,8 @@
+using RB.SharedKernel;
+
 namespace RB.Storage.Domain.Aggregates.UserAggregates.ValueObjects;
 
-public class Password
+public class Password : ValueObject
 {
     private static char[] _signs => "`~!@#$%^&*()-_=+[{]};:'\"\\|<,>.?/".ToCharArray();
     private static char[] _digits => "1234567890".ToCharArray();
@@ -37,5 +39,10 @@ public class Password
 
         if (value.IndexOfAny(_upperLetters).Equals(INDEX_WHEN_NOT_EXIST))
             throw new ArgumentException("Password must contain at least 1 upper letter.", nameof(value));
+    }
+
+    protected override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return Value;
     }
 }

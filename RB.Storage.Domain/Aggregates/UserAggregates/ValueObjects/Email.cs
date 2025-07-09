@@ -1,8 +1,9 @@
+using RB.SharedKernel;
 using RB.Storage.Domain.Aggregates.UserAggregates.Exceptions;
 
 namespace RB.Storage.Domain.Aggregates.UserAggregates.ValueObjects;
 
-public class Email
+public class Email : ValueObject
 {
     public string Value { get; }
 
@@ -20,5 +21,10 @@ public class Email
         EmailNullException.ThrowIfNullOrWhiteSpace(value);
         if (!value.Contains('@'))
             throw new InvalidEmailException(value);
+    }
+
+    protected override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return Value;
     }
 }
