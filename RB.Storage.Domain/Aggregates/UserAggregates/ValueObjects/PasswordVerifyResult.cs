@@ -1,6 +1,8 @@
+using RB.SharedKernel;
+
 namespace RB.Storage.Domain.Aggregates.UserAggregates.ValueObjects;
 
-public class PasswordVerifyResult
+public class PasswordVerifyResult : ValueObject
 {
     public bool Value { get; }
 
@@ -15,4 +17,9 @@ public class PasswordVerifyResult
 
     public static PasswordVerifyResult NotMatched
         => new(!Matched.Value);
+
+    protected override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return Value;
+    }
 }

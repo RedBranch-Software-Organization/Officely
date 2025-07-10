@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using RB.Storage.Infrastructure.Databases.Storage.Collections;
-using RB.Storage.Infrastructure.Extensions;
+using RB.SharedKernel.MongoDb.Extensions;
+using RB.Storage.Infrastructure.Databases.Storage.Constants;
 
 namespace RB.Storage.Infrastructure.Databases.Storage;
 
@@ -13,7 +13,7 @@ public class StorageDb
         => Database = configuration.GetMongoDatabase(NAME);
 
     private async Task InitializeAsync()
-        => await Database.CreateCollectionIfNotExistsAsync(UsersCollection.NAME);
+        => await Database.CreateCollectionIfNotExistsAsync(CollectionNames.USERS);
         
     public static async Task<StorageDb> InitializeAsync(IConfiguration configuration, bool initialize = true)
     {
