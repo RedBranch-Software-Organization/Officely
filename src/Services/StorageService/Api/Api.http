@@ -1,0 +1,9 @@
+@Api_HostAddress = http://localhost:5195
+
+POST {{Api_HostAddress}}/directories
+Content-Type: application/json
+
+{
+  "path": "/",
+  "name": "new-directory"
+}
