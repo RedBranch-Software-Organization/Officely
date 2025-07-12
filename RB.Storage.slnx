@@ -4,6 +4,9 @@
   <Folder Name="/src/services/CodeService/">
     <Project Path="src/Services/CodeService/Api/Api.csproj" />
     <Project Path="src/Services/CodeService/Application/Application.csproj" />
-    <Project Path="src/services/CodeService/Domain/Domain.csproj" />
+    <Project Path="src/Services/CodeService/Domain/Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/services/StorageService/">
+    <Project Path="src/Services/StorageService/Api/Api.csproj" />
   </Folder>
 </Solution>
