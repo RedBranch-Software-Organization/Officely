@@ -1,6 +1,6 @@
 @Api_HostAddress = http://localhost:5251
 
-GET {{Api_HostAddress}}/code/generate
+GET {{Api_HostAddress}}/generate?codeType=1
 Accept: application/json
 
 ###

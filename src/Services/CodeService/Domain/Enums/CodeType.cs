@@ -1,3 +1,4 @@
+
 using Ardalis.SmartEnum;
 
 namespace RB.Storage.CodeService.Domain.Enums;

@@ -4,13 +4,13 @@ using RB.Storage.CodeService.Domain.Interfaces;
 
 namespace RB.Storage.CodeService.Domain.Services;
 
-public class CodeService : ICodeService
+internal class CodeService : ICodeService
 {
     //ToDo: Move to a factory
-    public async Task<Code> GenerateAsync(CodeType generatorType)
+    public async Task<Code> GenerateAsync(CodeType generatorType, CancellationToken cancellationToken = default)
         => await ((IGenerator)(generatorType switch
         {
             _ when CodeType.Verification.Equals(generatorType) => new VerifyGenerator(),
             _ => throw new ArgumentOutOfRangeException(nameof(generatorType), generatorType, null)
-        })).GenerateAsync();
+        })).GenerateAsync(cancellationToken);
 }

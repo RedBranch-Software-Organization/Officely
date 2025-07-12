@@ -1,13 +1,4 @@
-using System;
-
+using RB.SharedKernel.MediatR.Command;
 namespace Application.Commands.GenerateVerificationCode;
 
-public class GenerateVerificationCodeCommand : IRequest<Code>
-{
-    public CodeType Type { get; }
-
-    public GenerateVerificationCodeCommand(CodeType type)
-    {
-        Type = type;
-    }
-}
+public record GenerateVerificationCodeCommand(int CodeType) : ICommand<GenerateVerificationCodeCommandResponse>;
