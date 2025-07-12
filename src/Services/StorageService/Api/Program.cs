@@ -29,6 +29,3 @@ app.MapPost("/directories", (CreateDirectoryRequest request) =>
 .WithName("CreateDirectory");
 
 app.Run();
-
-public record CreateDirectoryRequest(string Path, string Name);
-public record CreateDirectoryResponse(Guid Id, string Path, string Name);

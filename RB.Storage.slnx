@@ -8,5 +8,6 @@
   </Folder>
   <Folder Name="/src/services/StorageService/">
     <Project Path="src/Services/StorageService/Api/Api.csproj" />
+    <Project Path="src/Services/StorageService/Application/Application.csproj" />
   </Folder>
 </Solution>
