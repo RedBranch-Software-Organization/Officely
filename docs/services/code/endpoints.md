@@ -23,7 +23,7 @@ Generates a code based on the provided `CodeType`.
 
 ```json
 {
-  "VerificationCode": "123456"
+  "Code": "123456"
 }
 ```
 
@@ -32,13 +32,5 @@ Generates a code based on the provided `CodeType`.
 ```json
 {
   "Code": "a1b2c3d4e5f6g7h8"
-}
-```
-
-### Example Response (invalid `CodeType`)
-
-```json
-{
-  "error": "Invalid CodeType"
 }
 ```
