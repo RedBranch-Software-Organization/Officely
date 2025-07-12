@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RB.SharedKernel.MediatR" Version="0.2.0-beta.1.3" />
+    <PackageReference Include="RB.SharedKernel.MediatR" Version="0.2.0-beta.1.5" />
   </ItemGroup>
 
   <ItemGroup>
