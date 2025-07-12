@@ -22,10 +22,6 @@ paths:
                 oneOf:
                   - type: object
                     properties:
-                      VerificationCode:
-                        type: string
-                  - type: object
-                    properties:
                       Code:
                         type: string
         '400':
