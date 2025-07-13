@@ -1,8 +1,7 @@
-using System.Reflection;
 using Application.Extensions;
 using MediatR;
 using RB.SharedKernel.MediatR.Extensions;
-using GenerateVerificationCode = Application.Commands.GenerateVerificationCode;
+using GenerateCode = Application.Commands.GenerateCode;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +18,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapGet("/generate", async ([AsParameters] GenerateVerificationCode.Command command, IMediator mediator) 
-    => await mediator.SendCommandAsync(command))
+app.MapGet("/generate", async ([AsParameters] GenerateCode.Command command, IMediator mediator) 
+    => Results.Ok(await mediator.SendCommandAsync(command)))
 .WithName("Generate Code");
 
 await app.RunAsync();
