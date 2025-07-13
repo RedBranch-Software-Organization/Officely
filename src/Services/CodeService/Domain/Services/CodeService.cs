@@ -1,6 +1,6 @@
-using RB.Storage.CodeService.Domain.Entities;
 using RB.Storage.CodeService.Domain.Enums;
 using RB.Storage.CodeService.Domain.Interfaces;
+using RB.Storage.CodeService.Domain.ValueObjects;
 
 namespace RB.Storage.CodeService.Domain.Services;
 
@@ -10,7 +10,7 @@ internal class CodeService : ICodeService
     public async Task<Code> GenerateAsync(CodeType generatorType, CancellationToken cancellationToken = default)
         => await ((IGenerator)(generatorType switch
         {
-            _ when CodeType.Verification.Equals(generatorType) => new VerifyGenerator(),
+            _ when CodeType.Verification.Equals(generatorType) => new VerificationCodeGenerator(),
             _ => throw new ArgumentOutOfRangeException(nameof(generatorType), generatorType, null)
         })).GenerateAsync(cancellationToken);
 }
