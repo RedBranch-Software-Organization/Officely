@@ -1,11 +1,10 @@
 using System.Text;
-using RB.SharedKernel;
-using RB.Storage.CodeService.Domain.Entities;
 using RB.Storage.CodeService.Domain.Interfaces;
+using RB.Storage.CodeService.Domain.ValueObjects;
 
 namespace RB.Storage.CodeService.Domain.Services;
 
-internal class VerifyGenerator : IGenerator, IAggregateRoot
+internal class VerificationCodeGenerator : IGenerator
 {
     public async Task<Code> GenerateAsync(CancellationToken cancellationToken = default)
     {

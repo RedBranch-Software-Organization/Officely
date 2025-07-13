@@ -1,7 +1,7 @@
 using RB.SharedKernel.MediatR.Command;
 using RB.Storage.CodeService.Domain.Enums;
 using RB.Storage.CodeService.Domain.Interfaces;
-namespace Application.Commands.GenerateVerificationCode;
+namespace Application.Commands.GenerateCode;
 
 public class Handler(ICodeService codeService) : ICommandHandler<Command, Result>
 {

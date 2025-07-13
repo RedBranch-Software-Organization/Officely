@@ -1,5 +1,5 @@
-using RB.Storage.CodeService.Domain.Entities;
 using RB.Storage.CodeService.Domain.Enums;
+using RB.Storage.CodeService.Domain.ValueObjects;
 
 namespace RB.Storage.CodeService.Domain.Interfaces;
 
