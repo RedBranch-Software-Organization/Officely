@@ -1,9 +1,10 @@
-@Api_HostAddress = http://localhost:5195
+@Api_HostAddress = http://localhost:5081
 
 POST {{Api_HostAddress}}/directories
 Content-Type: application/json
 
 {
-  "path": "/",
-  "name": "new-directory"
+  "path": "",
+  "name": "b52280cd-a3bf-4487-ba6d-b02ce7e64d93",
+  "userId": "b52280cd-a3bf-4487-ba6d-b02ce7e64d93"
 }

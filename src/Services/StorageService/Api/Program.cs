@@ -1,7 +1,10 @@
-using System;
+using MediatR;
+using RB.SharedKernel.MediatR.Extensions;
+using CreateDirectory = RB.Storage.StorageService.Application.Commands.CreateDirectory;
+using RB.Storage.StorageService.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddApplication();
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
@@ -18,14 +21,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/directories", (CreateDirectoryRequest request) =>
+app.MapPost("/directories", async (CreateDirectory.Command request, IMediator mediator) =>
 {
-    // In a real application, you would save the directory to a database
-    // or perform other business logic.
-    // For this example, we'll just return a Created response.
-    var response = new CreateDirectoryResponse(Guid.NewGuid(), request.Path, request.Name);
-    return Results.Created($"/directories/{response.Id}", response);
+    var result = await mediator.SendCommandAsync(request);
+    return Results.Created($"/directories/{result.CreatedDirectoryId}", result);
 })
 .WithName("CreateDirectory");
 
-app.Run();
+await app.RunAsync();
