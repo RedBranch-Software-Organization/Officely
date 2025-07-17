@@ -1,4 +1,4 @@
 using RB.SharedKernel.MediatR.Command;
-namespace Application.Commands.GenerateCode;
+namespace RB.Storage.CodeService.Application.Commands.GenerateCode;
 
-public record Command(int CodeType) : ICommand<Result>;
+internal record Command(int? CodeType = 0, int? Quantity = 1) : ICommand<Result>;
