@@ -2,8 +2,18 @@
   <Folder Name="/src/" />
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/CodeService/">
+    <Project Path="src/Services/CodeService/Api.Client/Api.Client.csproj" Id="5c647233-14af-4c00-941a-84938c64921e" />
     <Project Path="src/Services/CodeService/Api/Api.csproj" />
     <Project Path="src/Services/CodeService/Application/Application.csproj" />
-    <Project Path="src/services/CodeService/Domain/Domain.csproj" />
+    <Project Path="src/Services/CodeService/Domain/Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/services/StorageService/">
+    <Project Path="src/Services/StorageService/Api/Api.csproj" />
+    <Project Path="src/Services/StorageService/Application/Application.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/services/" />
+  <Folder Name="/tests/services/CodeService/">
+    <Project Path="tests/services/CodeService/Domain.UnitTests/Domain.UnitTests.csproj" Id="315ac4f3-7234-458f-b789-d4cd614a8cab" />
   </Folder>
 </Solution>

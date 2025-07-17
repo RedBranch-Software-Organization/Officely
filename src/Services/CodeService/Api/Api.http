@@ -1,6 +1,33 @@
 @Api_HostAddress = http://localhost:5251
+@DefaultCode = 0
+@VerificationCode = 1
+@Quantity_5 = 5
 
-GET {{Api_HostAddress}}/generate?codeType=1
+### ### ### ### ### ### ### ### ### ### ### ### ###
+
+### Generate Code wihout CodeType provided
+GET {{Api_HostAddress}}/generate
 Accept: application/json
 
-###
+### Generate Default Code
+
+GET {{Api_HostAddress}}/generate?codeType={{DefaultCode}}
+Accept: application/json
+
+### ### ### ### ### ### ### ### ### ### ### ### ###
+
+### Generate Verification Code
+
+GET {{Api_HostAddress}}/generate?codeType={{VerificationCode}}
+Accept: application/json
+
+### Generate 5 Verification Codes
+GET {{Api_HostAddress}}/generate?codeType={{VerificationCode}}&quantity={{Quantity_5}}
+
+### ### ### ### ### ### ### ### ### ### ### ### ###
+
+### CodeType not defined
+
+GET {{Api_HostAddress}}/generate?codeType=5
+Accept: application/json
+
