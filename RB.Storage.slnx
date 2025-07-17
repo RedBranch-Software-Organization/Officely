@@ -2,6 +2,7 @@
   <Folder Name="/src/" />
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/CodeService/">
+    <Project Path="src/Services/CodeService/Api.Client/Api.Client.csproj" Id="5c647233-14af-4c00-941a-84938c64921e" />
     <Project Path="src/Services/CodeService/Api/Api.csproj" />
     <Project Path="src/Services/CodeService/Application/Application.csproj" />
     <Project Path="src/Services/CodeService/Domain/Domain.csproj" />
