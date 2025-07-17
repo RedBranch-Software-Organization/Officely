@@ -11,4 +11,9 @@
     <Project Path="src/Services/StorageService/Api/Api.csproj" />
     <Project Path="src/Services/StorageService/Application/Application.csproj" />
   </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/services/" />
+  <Folder Name="/tests/services/CodeService/">
+    <Project Path="tests/services/CodeService/Domain.UnitTests/Domain.UnitTests.csproj" Id="315ac4f3-7234-458f-b789-d4cd614a8cab" />
+  </Folder>
 </Solution>
