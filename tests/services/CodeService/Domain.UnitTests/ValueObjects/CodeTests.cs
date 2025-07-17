@@ -1,5 +1,6 @@
-using Moq;
+using Microsoft.Extensions.DependencyInjection;
 using RB.Storage.CodeService.Domain.Enums;
+using RB.Storage.CodeService.Domain.Extensions;
 using RB.Storage.CodeService.Domain.Interfaces;
 using RB.Storage.CodeService.Domain.ValueObjects;
 
@@ -7,22 +8,28 @@ namespace RB.Storage.CodeService.Domain.UnitTests.ValueObjects;
 
 public class CodeTests
 {
-    [Fact]
-    public async Task GenerateAsync_WhenCalled_ReturnsCodeObjectWithCorrectCodeTypeAndValue()
+    private readonly IGeneratorFactory _generatorFactory;
+
+    private const int _defaultCodeTypeValue = 0;
+    private const int _verificationCodeTypeValue = 1;
+
+    public CodeTests()
+    {
+        var services = new ServiceCollection();
+        services.AddDomain();
+        _generatorFactory = services.BuildServiceProvider().GetRequiredService<IGeneratorFactory>();
+    }
+
+    [Theory]
+    [InlineData(_defaultCodeTypeValue)]
+    [InlineData(_verificationCodeTypeValue)]
+    public async Task GenerateAsync_WhenCalled_ReturnsCodeObjectWithCorrectCodeType(int expected)
     {
         // Arrange
-        var codeType = CodeType.Default;
-        var expectedValue = "test_code";
-        var generatorMock = new Mock<IGenerator>();
-        generatorMock.Setup(g => g.GenerateAsync(default)).ReturnsAsync(expectedValue);
-        var generatorFactoryMock = new Mock<IGeneratorFactory>();
-        generatorFactoryMock.Setup(f => f.Create(codeType)).Returns(generatorMock.Object);
-
+        var codeType = CodeType.FromValue(expected);
         // Act
-        var code = await Code.GenerateAsync(codeType, generatorFactoryMock.Object);
-
+        var actual = (await Code.GenerateAsync(codeType, _generatorFactory)).CodeType;
         // Assert
-        Assert.Equal(codeType, code.CodeType);
-        Assert.Equal(expectedValue, code.Value);
+        Assert.Equal(expected, actual);
     }
 }
