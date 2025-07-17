@@ -10,7 +10,8 @@ Generates a code based on the provided `CodeType`.
 
 | Name       | In    | Type    | Required | Description                                                                                                                              |
 | ---------- | ----- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `CodeType` | query | integer | No       | Specifies the type of code to generate. If `1`, a `VerificationCode` is returned. If not provided, a default random string (`Code`) is generated. Other values are invalid. |
+| `CodeType` | query | integer | No       | Specifies the type of code to generate. Valid values are between 0 and 1. If not provided, the default value is 0.                                |
+| `Quantity` | query | integer | No       | Specifies the number of codes to generate. If not provided, the default value is 1.                                                      |
 
 ### Responses
 
@@ -18,19 +19,25 @@ Generates a code based on the provided `CodeType`.
 | ----------- | ---------------------------- |
 | 200         | Successful response          |
 | 400         | Bad Request - Invalid CodeType |
+| 500         | Internal Server Error        |
 
-### Example Response (`CodeType` = 1)
+### Example Response (`CodeType` = 1, `Quantity` = 2)
 
 ```json
 {
-  "Code": "123456"
+  "Codes": [
+    "123456",
+    "789012"
+  ]
 }
 ```
 
-### Example Response (no `CodeType`)
+### Example Response (no parameters)
 
 ```json
 {
-  "Code": "a1b2c3d4e5f6g7h8"
+  "Codes": [
+    "a1b2c3d4e5f6g7h8"
+  ]
 }
 ```
