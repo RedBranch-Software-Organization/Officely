@@ -6,7 +6,7 @@ namespace RB.Storage.CodeService.Domain.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddCodeService(this IServiceCollection services)
+    public static void AddDomain(this IServiceCollection services)
     {
         services.AddScoped<IGeneratorFactory, GeneratorFactory>();
     }

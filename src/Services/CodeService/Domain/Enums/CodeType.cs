@@ -1,5 +1,7 @@
 using Ardalis.SmartEnum;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("RB.Storage.CodeService.Domain.UnitTests")]
 namespace RB.Storage.CodeService.Domain.Enums;
 
 public sealed class CodeType(string name, int value) : SmartEnum<CodeType>(name, value)
