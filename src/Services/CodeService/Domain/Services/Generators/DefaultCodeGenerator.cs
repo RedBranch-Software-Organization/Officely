@@ -3,7 +3,7 @@ using RB.Storage.CodeService.Domain.Interfaces;
 using System.Text;
 
 namespace RB.Storage.CodeService.Domain.Services.Generators;
-internal class DefaultCodeGenerator : IGenerator
+public class DefaultCodeGenerator : IGenerator
 {
     public CodeType CodeType => CodeType.Default;
 
