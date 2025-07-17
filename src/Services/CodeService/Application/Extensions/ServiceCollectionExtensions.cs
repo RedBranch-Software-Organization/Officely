@@ -4,11 +4,11 @@ using RB.SharedKernel.MediatR.Command;
 using RB.SharedKernel.MediatR.Query;
 using RB.Storage.CodeService.Domain.Extensions;
 
-namespace Application.Extensions;
+namespace RB.Storage.CodeService.Application.Extensions;
 
-public static class ServiceCollectionExtensions
+internal static class ServiceCollectionExtensions
 {
-    public static void AddApplication(this IServiceCollection services)
+    internal static void AddApplication(this IServiceCollection services)
     {
         services.AddCodeService();
         //ToDo: This should be moved to RB.SharedKernel.MediatR.Extensions but it's not working there
@@ -18,5 +18,17 @@ public static class ServiceCollectionExtensions
                                       .RegisterServicesFromAssemblyContaining<IQueryHandler<IQuery<IQueryResult>, IQueryResult>>()
                                       .RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
         );
+
+        services.AddOpenApi();
+        services.AddCors(opt =>
+        {
+            opt.AddDefaultPolicy(policy =>
+            {
+                policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
+        services.AddSwaggerGen();
     }
 }

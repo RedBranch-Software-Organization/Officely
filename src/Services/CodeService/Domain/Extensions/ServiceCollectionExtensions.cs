@@ -8,7 +8,6 @@ public static class ServiceCollectionExtensions
 {
     public static void AddCodeService(this IServiceCollection services)
     {
-        services.AddScoped<ICodeService, Services.CodeService>();
         services.AddScoped<IGeneratorFactory, GeneratorFactory>();
     }
 }

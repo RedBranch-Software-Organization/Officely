@@ -4,5 +4,5 @@ namespace RB.Storage.CodeService.Domain.Interfaces;
 
 public interface IGeneratorFactory
 {
-    public IGenerator Create(CodeType codeType);
+    IGenerator Create(CodeType codeType);
 }
