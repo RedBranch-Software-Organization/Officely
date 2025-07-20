@@ -1,8 +1,6 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/apps/">
-    <Project Path="src/Apps/Officely.Observability.App/Officely.Observability.App.csproj" Id="5b2c21ef-0b7a-435f-b8c6-0c581171b7c8" />
-  </Folder>
+  <Folder Name="/src/apps/" />
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/CodeService/">
     <Project Path="src/Services/CodeService/Api.Client/Api.Client.csproj" Id="5c647233-14af-4c00-941a-84938c64921e" />
@@ -13,6 +11,7 @@
   <Folder Name="/src/services/StorageService/">
     <Project Path="src/Services/StorageService/Api/Api.csproj" />
     <Project Path="src/Services/StorageService/Application/Application.csproj" />
+    <Project Path="src/Services/StorageService/Domain/Domain.csproj" Id="385f6868-f403-4260-b0d6-f3e87ffdb0cd" />
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/services/" />
