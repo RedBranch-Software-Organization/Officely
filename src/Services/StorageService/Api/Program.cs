@@ -1,10 +1,10 @@
 using MediatR;
 using RB.SharedKernel.MediatR.Extensions;
-using CreateDirectory = RB.Storage.StorageService.Application.Commands.CreateDirectory;
-using RB.Storage.StorageService.Application.Extensions;
-using RB.Storage.CodeService.Api.Client.Extensions;
-using RB.Storage.CodeService.Api.Client;
-using RB.Storage.CodeService.Api.Client.Models.Generate;
+using CreateDirectory = Officely.StorageService.Application.Commands.CreateDirectory;
+using Officely.StorageService.Application.Extensions;
+using Officely.CodeService.Api.Client.Extensions;
+using Officely.CodeService.Api.Client;
+using Officely.CodeService.Api.Client.Models.Generate;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplication();

@@ -1,10 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Extensions;
-using RB.Storage.CodeService.Domain.Interfaces;
-using RB.Storage.CodeService.Domain.ValueObjects;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Extensions;
+using Officely.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.ValueObjects;
 
-namespace RB.Storage.CodeService.Domain.UnitTests.ValueObjects;
+namespace Officely.CodeService.Domain.UnitTests.ValueObjects;
 
 public class CodeTests
 {

@@ -1,12 +1,12 @@
 using RB.SharedKernel.MediatR.Command;
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Exceptions;
-using RB.Storage.CodeService.Domain.Interfaces;
-using RB.Storage.CodeService.Domain.ValueObjects;
-using RB.Storage.CodeService.Application.Commands.GenerateCode;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Exceptions;
+using Officely.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.ValueObjects;
+using Officely.CodeService.Application.Commands.GenerateCode;
 using MediatR;
 
-namespace RB.Storage.CodeService.Application.Commands.GenerateCode;
+namespace Officely.CodeService.Application.Commands.GenerateCode;
 
 internal class Handler(IGeneratorFactory generatorFactory) : ICommandHandler<Command, Result>
 {

@@ -5,8 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <AssemblyName>RB.Storage.CodeService.Domain.UnitTests</AssemblyName>
-    <RootNamespace>RB.Storage.CodeService.Domain.UnitTests</RootNamespace>
+    <AssemblyName>Officely.CodeService.Domain.UnitTests</AssemblyName>
+    <RootNamespace>Officely.CodeService.Domain.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

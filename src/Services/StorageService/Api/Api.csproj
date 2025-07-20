@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>RB.Storage.StorageService.Api</AssemblyName>
-    <RootNamespace>RB.Storage.StorageService.Api</RootNamespace>
+    <AssemblyName>Officely.StorageService.Api</AssemblyName>
+    <RootNamespace>Officely.StorageService.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

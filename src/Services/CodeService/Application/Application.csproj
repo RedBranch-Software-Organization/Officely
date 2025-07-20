@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>RB.Storage.CodeService.Application</AssemblyName>
-    <RootNamespace>RB.Storage.CodeService.Application</RootNamespace>
+    <AssemblyName>Officely.CodeService.Application</AssemblyName>
+    <RootNamespace>Officely.CodeService.Application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

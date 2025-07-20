@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using RB.SharedKernel.MediatR.Extensions;
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Exceptions;
-using GenerateCodeCommand = RB.Storage.CodeService.Application.Commands.GenerateCode.Command;
-using GenerateCodeResult = RB.Storage.CodeService.Application.Commands.GenerateCode.Result;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Exceptions;
+using GenerateCodeCommand = Officely.CodeService.Application.Commands.GenerateCode.Command;
+using GenerateCodeResult = Officely.CodeService.Application.Commands.GenerateCode.Result;
 
-namespace RB.Storage.CodeService.Application.Endpoints;
+namespace Officely.CodeService.Application.Endpoints;
 internal static class GenerateEndpoint
 {
     private readonly static string pattern = "/generate";

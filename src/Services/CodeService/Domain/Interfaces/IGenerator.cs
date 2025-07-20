@@ -1,7 +1,7 @@
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.ValueObjects;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.ValueObjects;
 
-namespace RB.Storage.CodeService.Domain.Interfaces;
+namespace Officely.CodeService.Domain.Interfaces;
 
 public interface IGenerator
 {

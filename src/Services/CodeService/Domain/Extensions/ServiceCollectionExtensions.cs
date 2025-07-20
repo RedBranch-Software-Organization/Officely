@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using RB.Storage.CodeService.Domain.Factories;
-using RB.Storage.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.Factories;
+using Officely.CodeService.Domain.Interfaces;
 
-namespace RB.Storage.CodeService.Domain.Extensions;
+namespace Officely.CodeService.Domain.Extensions;
 
 public static class ServiceCollectionExtensions
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using RB.Storage.CodeService.Application.Extensions;
+using Officely.CodeService.Application.Extensions;
 using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("RB.Storage.CodeService.Api")]
+[assembly: InternalsVisibleTo("Officely.CodeService.Api")]
 
-namespace RB.Storage.CodeService.Application;
+namespace Officely.CodeService.Application;
 internal static class App
 {
     internal static async Task BuildAndRunAsync(string[] args)

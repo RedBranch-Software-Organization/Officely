@@ -2,9 +2,9 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using RB.SharedKernel.MediatR.Command;
 using RB.SharedKernel.MediatR.Query;
-using RB.Storage.CodeService.Domain.Extensions;
+using Officely.CodeService.Domain.Extensions;
 
-namespace RB.Storage.CodeService.Application.Extensions;
+namespace Officely.CodeService.Application.Extensions;
 
 internal static class ServiceCollectionExtensions
 {

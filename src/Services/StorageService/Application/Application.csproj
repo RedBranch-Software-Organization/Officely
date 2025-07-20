@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>RB.Storage.StorageService.Application</AssemblyName>
-    <RootNamespace>RB.Storage.StorageService.Application</RootNamespace>
+    <AssemblyName>Officely.StorageService.Application</AssemblyName>
+    <RootNamespace>Officely.StorageService.Application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

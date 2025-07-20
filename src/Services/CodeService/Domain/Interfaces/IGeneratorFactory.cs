@@ -1,6 +1,6 @@
-using RB.Storage.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Enums;
 
-namespace RB.Storage.CodeService.Domain.Interfaces;
+namespace Officely.CodeService.Domain.Interfaces;
 
 public interface IGeneratorFactory
 {

@@ -1,8 +1,8 @@
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Interfaces;
-using RB.Storage.CodeService.Domain.Services.Generators;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.Services.Generators;
 
-namespace RB.Storage.CodeService.Domain.Factories;
+namespace Officely.CodeService.Domain.Factories;
 
 internal class GeneratorFactory : IGeneratorFactory
 {
