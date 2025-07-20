@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 using Microsoft.Extensions.Configuration;
 using RB.SharedKernel.MediatR.Command;
 

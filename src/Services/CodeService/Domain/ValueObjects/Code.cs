@@ -4,6 +4,7 @@ using Officely.CodeService.Domain.Interfaces;
 
 namespace Officely.CodeService.Domain.ValueObjects;
 
+//ToDo: Change ValueObject in RB.SharedKernel to remove generic type constraint
 public class Code : ValueObject<string>
 {
     public CodeType CodeType { get; }
