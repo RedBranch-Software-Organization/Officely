@@ -1,8 +1,7 @@
-using System.Reflection.Metadata;
 using Microsoft.Extensions.Configuration;
 using RB.SharedKernel.MediatR.Command;
 
-namespace RB.Storage.StorageService.Application.Commands.CreateDirectory;
+namespace Officely.StorageService.Application.Commands.CreateDirectory;
 
 public class Handler(IConfiguration configuration) : ICommandHandler<Command, Result>
 {

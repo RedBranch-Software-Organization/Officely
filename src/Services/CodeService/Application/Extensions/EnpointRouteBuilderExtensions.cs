@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
-using RB.Storage.CodeService.Application.Endpoints;
+using Officely.CodeService.Application.Endpoints;
 
-namespace RB.Storage.CodeService.Application.Extensions;
+namespace Officely.CodeService.Application.Extensions;
 internal static class EnpointRouteBuilderExtensions
 {
     internal static void MapEndpoints(this IEndpointRouteBuilder app)

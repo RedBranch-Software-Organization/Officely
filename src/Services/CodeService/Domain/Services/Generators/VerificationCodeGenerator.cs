@@ -1,8 +1,8 @@
 using System.Text;
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Interfaces;
 
-namespace RB.Storage.CodeService.Domain.Services.Generators;
+namespace Officely.CodeService.Domain.Services.Generators;
 
 public class VerificationCodeGenerator : IGenerator
 {

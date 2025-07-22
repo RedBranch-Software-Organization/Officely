@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RB.SharedKernel.MediatR.Command;
 using RB.SharedKernel.MediatR.Query;
 
-namespace RB.Storage.StorageService.Application.Extensions;
+namespace Officely.StorageService.Application.Extensions;
 
 public static class ServiceCollectionExtensions
 {

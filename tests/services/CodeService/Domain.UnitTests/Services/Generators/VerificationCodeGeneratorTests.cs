@@ -1,6 +1,6 @@
-using RB.Storage.CodeService.Domain.Services.Generators;
+using Officely.CodeService.Domain.Services.Generators;
 
-namespace RB.Storage.CodeService.Domain.UnitTests.Services.Generators;
+namespace Officely.CodeService.Domain.UnitTests.Services.Generators;
 
 public class VerificationCodeGeneratorTests
 {

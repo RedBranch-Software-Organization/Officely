@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Refit;
 
-namespace RB.Storage.CodeService.Api.Client.Extensions;
+namespace Officely.CodeService.Api.Client.Extensions;
 public static class ServiceCollectionExtensions
 {
     public static void AddApiClient(this IServiceCollection services, string uri)

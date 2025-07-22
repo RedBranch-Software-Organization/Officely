@@ -1,8 +1,8 @@
-﻿using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Interfaces;
+﻿using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Interfaces;
 using System.Text;
 
-namespace RB.Storage.CodeService.Domain.Services.Generators;
+namespace Officely.CodeService.Domain.Services.Generators;
 public class DefaultCodeGenerator : IGenerator
 {
     public CodeType CodeType => CodeType.Default;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 
-namespace RB.Storage.CodeService.Application.Extensions;
+namespace Officely.CodeService.Application.Extensions;
 internal static class WebApplicationExtensions
 {
     internal static void UseApplication(this WebApplication app)

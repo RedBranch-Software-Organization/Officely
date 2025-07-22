@@ -1,9 +1,10 @@
 using RB.SharedKernel;
-using RB.Storage.CodeService.Domain.Enums;
-using RB.Storage.CodeService.Domain.Interfaces;
+using Officely.CodeService.Domain.Enums;
+using Officely.CodeService.Domain.Interfaces;
 
-namespace RB.Storage.CodeService.Domain.ValueObjects;
+namespace Officely.CodeService.Domain.ValueObjects;
 
+//ToDo: Change ValueObject in RB.SharedKernel to remove generic type constraint
 public class Code : ValueObject<string>
 {
     public CodeType CodeType { get; }
