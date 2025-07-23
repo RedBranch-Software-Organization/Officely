@@ -2,14 +2,14 @@ using RB.SharedKernel;
 
 namespace Officely.UserService.Domain.ValueObjects;
 
-public class HashedPassword : ValueObject
+public class PasswordHash : ValueObject
 {
     public string Value { get; }
 
-    private HashedPassword(string value)
+    private PasswordHash(string value)
         => Value = value;
 
-    public static HashedPassword Initialize(string hashedPassword)
+    public static PasswordHash Initialize(string hashedPassword)
         => new(hashedPassword);
 
     protected override IEnumerable<object> GetEqualityComponents()

@@ -12,7 +12,6 @@ builder.Services.AddApplication();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddApiClient("http://localhost:5251");
 
 var app = builder.Build();
 
@@ -24,13 +23,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.MapGet("/generateCode", async ([AsParameters] int codeType, ICodeService codeService) =>
-{
-    var response = await codeService.GenerateAsync(codeType, 3); // Default to generating one code
-
-    return Results.Ok(response);
-});
 
 app.MapPost("/directories", async (CreateDirectory.Command request, IMediator mediator) =>
 {

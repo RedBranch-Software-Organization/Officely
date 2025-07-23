@@ -4,6 +4,6 @@ namespace Officely.UserService.Domain.Interfaces;
 
 public interface IPasswordService
 {
-    HashedPassword Hash(Password password);
-    PasswordVerifyResult Verify(Password password, HashedPassword hashedPassword);
+    PasswordHash Hash(Password password);
+    PasswordVerifyResult Verify(Password password, PasswordHash hashedPassword);
 }

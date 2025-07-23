@@ -4,5 +4,5 @@ namespace Officely.UserService.Domain.Interfaces;
 
 public interface IUserRepository
 {
-    Task AddAsync(User user);
+    Task<User> AddAsync(User user);
 }

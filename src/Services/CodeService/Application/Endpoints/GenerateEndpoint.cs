@@ -16,12 +16,12 @@ internal static class GenerateEndpoint
     internal static void MapGenerate(this IEndpointRouteBuilder app)
     {
         app.MapGet(pattern, GenerateAsync)
+           .Accepts<GenerateCodeCommand>("application/json")
            .WithName("Generate Code")
            .Produces<GenerateCodeResult>(StatusCodes.Status200OK)
-           .Produces<string>(StatusCodes.Status400BadRequest)
-           .Produces<string>(StatusCodes.Status500InternalServerError)
+           .ProducesProblem(StatusCodes.Status400BadRequest)
+           .ProducesProblem(StatusCodes.Status500InternalServerError)
            .WithDescription($"Generates code based on the specified code type. Valid code types are between   {CodeType.MinValue} and {CodeType.MaxValue}. If no code type is specified, the default code type will be used.");
-
     }
 
     private static async Task<IResult> GenerateAsync([AsParameters] GenerateCodeCommand command, IMediator mediator)
