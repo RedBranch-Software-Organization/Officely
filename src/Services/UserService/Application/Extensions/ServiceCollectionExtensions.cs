@@ -1,16 +1,31 @@
 using System.Reflection;
-using FluentValidation;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using RB.SharedKernel.MediatR.Command;
+using RB.SharedKernel.MediatR.Query;
 
-namespace UserService.Application.Extensions;
+namespace Officely.UserService.Application.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
+    public static void AddApplication(this IServiceCollection services)
     {
-        services.AddMediatR(Assembly.GetExecutingAssembly());
-        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-        return services;
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ICommandHandler<ICommand>>()
+                                    .RegisterServicesFromAssemblyContaining<ICommandHandler<ICommand<ICommandResult>, ICommandResult>>()
+                                    .RegisterServicesFromAssemblyContaining<IQueryHandler<IQuery>>()
+                                    .RegisterServicesFromAssemblyContaining<IQueryHandler<IQuery<IQueryResult>, IQueryResult>>()
+                                    .RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
+        );
+
+        services.AddOpenApi();
+        services.AddCors(opt =>
+        {
+            opt.AddDefaultPolicy(policy =>
+            {
+                policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
+        services.AddSwaggerGen();
     }
 }

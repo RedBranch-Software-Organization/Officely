@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using UserService.Application.Extensions;
+using Officely.UserService.Application.Extensions;
 
-namespace UserService.Application;
+namespace Officely.UserService.Application;
 
 public static class App
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
+    internal static async Task BuildAndRunAsync(string[] args)
     {
-        services.AddApplication();
-        return services;
-    }
-
-    public static void UseApplication(this WebApplication app)
-    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddApplication();
+        var app = builder.Build();
         app.UseApplication();
+        await app.RunAsync();
     }
 }

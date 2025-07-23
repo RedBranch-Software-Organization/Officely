@@ -2,17 +2,18 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using UserService.Application.Commands.Register;
+using RB.SharedKernel.MediatR.Extensions;
+using RegisterCommand = Officely.UserService.Application.Commands.Register.Command;
 
-namespace UserService.Application.Endpoints;
+namespace Officely.UserService.Application.Endpoints;
 
 public static class RegisterEndpoint
 {
     public static void MapRegisterEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/register", async (IMediator mediator, RegisterCommand command) =>
+        app.MapPost("/register", async ([AsParameters] RegisterCommand command, IMediator mediator) =>
         {
-            await mediator.Send(command);
+            await mediator.SendCommandAsync(command);
             return Results.Ok();
         });
     }

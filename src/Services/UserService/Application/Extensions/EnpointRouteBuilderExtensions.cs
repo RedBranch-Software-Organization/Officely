@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Builder;
-using UserService.Application.Endpoints;
+using Microsoft.AspNetCore.Routing;
+using Officely.UserService.Application.Endpoints;
 
-namespace UserService.Application.Extensions;
+namespace Officely.UserService.Application.Extensions;
 
 public static class EnpointRouteBuilderExtensions
 {
