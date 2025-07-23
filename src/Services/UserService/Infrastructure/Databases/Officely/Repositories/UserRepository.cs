@@ -16,6 +16,7 @@ public class UserRepository(OfficelyDb db) : RepositoryBase<UserDocument, string
 
     public async Task<User> AddAsync(User user)
     {
+        //ToDo: Something don't work with RepositoryBase<TDocument, TKey> and MongoDB.Driver
 
         await Database.GetCollection<UserDocument>(CollectionName).InsertOneAsync(UserMapper.MapToDocument(user));
         FilterDefinition<UserDocument> empty = Builders<UserDocument>.Filter.Empty;

@@ -8,6 +8,7 @@ public class OfficelyDb
 {
     public static readonly string NAME = "OfficelyDb";
     public readonly IMongoDatabase Database;
+    //ToDo: Remove using in line with MongoClient from GetMongoDatabase in RB.SharedKernel.MongoDb.Extensions.ConfigurationExtensions
     private OfficelyDb(IConfiguration configuration)
     {
         string? connectionString = configuration.GetConnectionString(NAME);
