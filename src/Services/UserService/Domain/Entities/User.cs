@@ -22,9 +22,9 @@ public class User : Entity<Guid>, IAggregateRoot
         Roles = roles;
     }
 
-    public static User CreateClient(string email, string username, string password, IPasswordService passwordService)
-        => new(Guid.NewGuid(), Email.Initialize(email), Username.Initialize(username), passwordService.Hash(Password.Initialize(password)), DateTime.UtcNow, Roles.Client);
-
     public static User Initialize(Guid id, Email email, Username username, HashedPassword passwordHash, DateTime createdAt, Roles roles)
         => new(id, email, username, passwordHash, createdAt, roles);
+
+    public static User CreateClient(string email, string username, string password, IPasswordService passwordService)
+        => new(Guid.NewGuid(), Email.Initialize(email), Username.Initialize(username), passwordService.Hash(Password.Initialize(password)), DateTime.UtcNow, Roles.Client);
 }
