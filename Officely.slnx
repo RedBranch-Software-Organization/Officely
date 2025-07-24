@@ -1,7 +1,10 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/apps/" />
-  <Folder Name="/src/apps/Officely/" />
+  <Folder Name="/src/apps/ClientPortal/">
+    <Project Path="src/apps/ClientPortal/App/App.csproj" />
+  </Folder>
+  <Folder Name="/src/apps/Monitoring/" />
   <Folder Name="/src/services/" />
   <Folder Name="/src/services/CodeService/">
     <Project Path="src/Services/CodeService/Api.Client/Api.Client.csproj" Id="5c647233-14af-4c00-941a-84938c64921e" />
