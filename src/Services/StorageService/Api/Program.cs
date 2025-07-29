@@ -1,6 +1,3 @@
-using MediatR;
-using RB.SharedKernel.MediatR.Extensions;
-using InitializeUserDirectory = Officely.StorageService.Application.Commands.InitializeUserDirectory;
 using Officely.StorageService.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,12 +17,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.MapPost("/directories", async (InitializeUserDirectory.Command request, IMediator mediator) =>
-{
-    var result = await mediator.SendCommandAsync(request);
-    return Results.Created($"/directories/{result}", result);
-})
-.WithName("CreateDirectory");
 
 await app.RunAsync();

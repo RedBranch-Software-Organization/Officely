@@ -1,29 +1,35 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/apps/" />
-  <Folder Name="/src/apps/Officely/" />
-  <Folder Name="/src/services/" />
-  <Folder Name="/src/services/CodeService/">
+  <Folder Name="/src/Apps/" />
+  <Folder Name="/src/Apps/Officely/">
+    <Project Path="src/Apps/Officely/Api/Api.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/IntegrationEvents/IntegrationEvents.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/CodeService/">
     <Project Path="src/Services/CodeService/Api.Client/Api.Client.csproj" Id="5c647233-14af-4c00-941a-84938c64921e" />
     <Project Path="src/Services/CodeService/Api/Api.csproj" />
     <Project Path="src/Services/CodeService/Application/Application.csproj" />
     <Project Path="src/Services/CodeService/Domain/Domain.csproj" />
   </Folder>
-  <Folder Name="/src/services/StorageService/">
+  <Folder Name="/src/Services/StorageService/">
     <Project Path="src/Services/StorageService/Api/Api.csproj" />
     <Project Path="src/Services/StorageService/Application/Application.csproj" />
     <Project Path="src/Services/StorageService/Domain/Domain.csproj" Id="385f6868-f403-4260-b0d6-f3e87ffdb0cd" />
-    <Project Path="src/services/StorageService/Infrastructure/Infrastructure.csproj" />
+    <Project Path="src/Services/StorageService/Infrastructure/Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/services/UserService/">
-    <Project Path="src/services/UserService/Api/Api.csproj" />
+  <Folder Name="/src/Services/UserService/">
+    <Project Path="src/Services/UserService/Api.Client/Api.Client.csproj" />
+    <Project Path="src/Services/UserService/Api/Api.csproj" />
     <Project Path="src/Services/UserService/Application/Application.csproj" />
-    <Project Path="src/services/UserService/Domain/Domain.csproj" />
-    <Project Path="src/services/UserService/Infrastructure/Infrastructure.csproj" />
+    <Project Path="src/Services/UserService/Domain/Domain.csproj" />
+    <Project Path="src/Services/UserService/Infrastructure/Infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/" />
-  <Folder Name="/tests/services/" />
-  <Folder Name="/tests/services/CodeService/">
-    <Project Path="tests/services/CodeService/Domain.UnitTests/Domain.UnitTests.csproj" Id="315ac4f3-7234-458f-b789-d4cd614a8cab" />
+  <Folder Name="/tests/Services/" />
+  <Folder Name="/tests/Services/CodeService/">
+    <Project Path="tests/Services/CodeService/Domain.UnitTests/Domain.UnitTests.csproj" Id="315ac4f3-7234-458f-b789-d4cd614a8cab" />
   </Folder>
 </Solution>

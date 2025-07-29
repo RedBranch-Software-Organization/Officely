@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using RB.SharedKernel.MediatR.Extensions;
-using RegisterCommand = Officely.UserService.Application.Commands.Register.Command;
-using RegisterResult = Officely.UserService.Application.Commands.Register.Result;
-using RegisterValidator = Officely.UserService.Application.Commands.Register.Validator;
+using SignUpCommand = Officely.UserService.Application.Commands.SignUp.Command;
+using SignUpResult = Officely.UserService.Application.Commands.SignUp.Result;
+using SignUpValidator = Officely.UserService.Application.Commands.SignUp.Validator;
 
 namespace Officely.UserService.Application.Endpoints;
 
@@ -15,19 +15,19 @@ public static class RegisterEndpoint
 
     public static void MapRegisterEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/register", RegisterAsync)
-            .Accepts<RegisterCommand>("application/json")
-            .WithName("Register User")
-            .Produces<RegisterResult>(StatusCodes.Status201Created)
+        app.MapPost("/signup", SignUpAsync)
+            .Accepts<SignUpCommand>("application/json")
+            .WithName("Sign Up User")
+            .Produces<SignUpResult>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status500InternalServerError)
-            .WithDescription("Registers a new user with the provided email, password, and username.");
+            .WithDescription("Sign up a new user with the provided email, password, and username.");
     }
-    private static async Task<IResult> RegisterAsync([FromBody] RegisterCommand command, IMediator mediator)
+    private static async Task<IResult> SignUpAsync([FromBody] SignUpCommand command, IMediator mediator)
     {
         try
         {
-            var validationResult = await new RegisterValidator().ValidateAsync(command);
+            var validationResult = await new SignUpValidator().ValidateAsync(command);
             if (!validationResult.IsValid)
                 return Results.BadRequest(validationResult.Errors);
 

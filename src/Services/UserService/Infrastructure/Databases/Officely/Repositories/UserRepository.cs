@@ -1,11 +1,8 @@
 using MongoDB.Driver;
 using Officely.UserService.Domain.Entities;
-using Officely.UserService.Domain.Enums;
 using Officely.UserService.Domain.Interfaces;
-using Officely.UserService.Domain.ValueObjects;
 using Officely.UserService.Infrastructure.Databases.Officely.Documents;
 using Officely.UserService.Infrastructure.Databases.Officely.Mappers;
-using RB.SharedKernel;
 using RB.SharedKernel.MongoDb;
 
 namespace Officely.UserService.Infrastructure.Databases.Officely.Repositories;
@@ -23,6 +20,8 @@ public class UserRepository(OfficelyDb db) : RepositoryBase<UserDocument, string
 
         var coll =  await Database.GetCollection<UserDocument>(CollectionName).FindAsync(empty);
         
-        return user;
+        return coll.FirstOrDefault() is UserDocument document
+            ? UserMapper.MapToDomain(document)
+            : throw new InvalidOperationException("No user found after insertion.");
     }
 }
