@@ -1,6 +1,7 @@
 using IntegrationEvents.Customer;
 using MassTransit;
 using Officely.UserService.Api.Client;
+using Officely.UserService.Api.Client.Extensions;
 using Officely.UserService.Api.Client.Models.SignUp;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,13 +13,16 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost:5672", h =>
+        cfg.Host("rabbitmq://localhost", h =>
         {
             h.Username("guest");
             h.Password("guest");
         });
     });
 });
+
+builder.Services.AddApiClient(builder.Configuration["HttpClients:UserService"] 
+    ?? throw new InvalidOperationException("UserService base address is not configured."));
 
 var app = builder.Build();
 

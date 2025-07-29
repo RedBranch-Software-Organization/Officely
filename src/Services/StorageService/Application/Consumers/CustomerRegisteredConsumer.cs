@@ -14,6 +14,5 @@ public class CustomerRegisteredConsumer(IConfiguration configuration, IStorageIt
     {
         var eventData = context.Message;
         await storageItemService.InitializeCustomerDirectoryAsync(eventData.UserId, _basePath);
-        await Task.CompletedTask;
     }
 }

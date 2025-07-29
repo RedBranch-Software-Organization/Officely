@@ -19,9 +19,9 @@ public class StorageItemRepository(OfficelyDb db) : RepositoryBase<StorageItemDo
         //ToDo: Something don't work with RepositoryBase<TDocument, TKey> and MongoDB.Driver
 
         await Database.GetCollection<StorageItemDocument>(CollectionName).InsertOneAsync(StorageItemMapper.MapToDocument(storageItem));
-        FilterDefinition<StorageItemDocument> empty = Builders<StorageItemDocument>.Filter.Empty;
+        FilterDefinition<StorageItemDocument> filterById = Builders<StorageItemDocument>.Filter.Eq(si => si.Id, storageItem.Id.ToString());
 
-        var coll =  await Database.GetCollection<StorageItemDocument>(CollectionName).FindAsync(empty);
+        var coll =  await Database.GetCollection<StorageItemDocument>(CollectionName).FindAsync(filterById);
         return StorageItemMapper.MapToDomain(await coll.FirstOrDefaultAsync());
     }
 

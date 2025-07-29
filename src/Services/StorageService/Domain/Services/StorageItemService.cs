@@ -5,7 +5,7 @@ namespace Officely.StorageService.Domain.Services;
 
 public class StorageItemService(IDirectoryService directoryService, IStorageItemRepository storageItemRepository) : IStorageItemService
 {
-    public async Task<StorageItemMapper> InitializeCustomerDirectoryAsync(Guid authorId, string basePath)
+    public async Task<StorageItem> InitializeCustomerDirectoryAsync(Guid authorId, string basePath)
     {
         if (!await directoryService.Exists(basePath))
             throw new DirectoryNotFoundException($"The parent directory '{basePath}' does not exist.");
@@ -15,7 +15,7 @@ public class StorageItemService(IDirectoryService directoryService, IStorageItem
             throw new IOException($"The directory '{newDirectoryPath}' already exists.");
 
         await directoryService.CreateDirectory(newDirectoryPath);
-        var customerDirectory = StorageItemMapper.CreateCustomerDirectory(authorId);
+        var customerDirectory = StorageItem.CreateCustomerDirectory(authorId);
         return await storageItemRepository.AddAsync(customerDirectory);
     }
 }

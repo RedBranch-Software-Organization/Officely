@@ -1,9 +1,12 @@
 using Officely.StorageService.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddApplication();
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+
+await builder.Services.AddApplicationAsync(builder.Configuration);
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

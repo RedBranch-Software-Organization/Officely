@@ -10,10 +10,10 @@ using SignUpValidator = Officely.UserService.Application.Commands.SignUp.Validat
 
 namespace Officely.UserService.Application.Endpoints;
 
-public static class RegisterEndpoint
+public static class SignUpEndpoint
 {
 
-    public static void MapRegisterEndpoint(this IEndpointRouteBuilder app)
+    public static void MapSignUpEndpoint(this IEndpointRouteBuilder app)
     {
         app.MapPost("/signup", SignUpAsync)
             .Accepts<SignUpCommand>("application/json")
