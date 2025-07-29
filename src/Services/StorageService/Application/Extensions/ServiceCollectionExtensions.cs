@@ -1,20 +1,34 @@
-using System.Reflection;
+using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RB.SharedKernel.MediatR.Command;
-using RB.SharedKernel.MediatR.Query;
+using Officely.StorageService.Application.Consumers;
+using Officely.StorageService.Infrastructure.Extensions;
 
 namespace Officely.StorageService.Application.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddApplication(this IServiceCollection services)
+    public static async Task AddApplicationAsync(this IServiceCollection services, IConfiguration configuration)
     {
-        //ToDo: This should be moved to RB.SharedKernel.MediatR.Extensions but it's not working there
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ICommandHandler<ICommand>>()
-                                      .RegisterServicesFromAssemblyContaining<ICommandHandler<ICommand<ICommandResult>, ICommandResult>>()
-                                      .RegisterServicesFromAssemblyContaining<IQueryHandler<IQuery>>()
-                                      .RegisterServicesFromAssemblyContaining<IQueryHandler<IQuery<IQueryResult>, IQueryResult>>()
-                                      .RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
-        );
+        await services.AddInfrastructureAsync(configuration);
+        //services.AddTransient<IConsumer, CustomerRegisteredConsumer>();
+        services.AddMassTransit(x =>
+        {
+            x.AddConsumer<CustomerRegisteredConsumer>();
+
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host("rabbitmq://localhost", h =>
+                {
+                    h.Username("guest");
+                    h.Password("guest");
+                });
+
+                cfg.ReceiveEndpoint("customer-registered-consumer", e =>
+                {
+                    e.ConfigureConsumer<CustomerRegisteredConsumer>(context);
+                });
+            });
+        });
     }
 }

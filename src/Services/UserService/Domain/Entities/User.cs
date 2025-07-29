@@ -32,6 +32,6 @@ public class User : Entity<Guid>, IAggregateRoot
     //ToDo: Verification code generation and expiration logic should be handled in a service or factory.
     //We should create ICodeGenerationService and call to microservice to generate the code. Temporarily using empty string and 1 day expiration.
     public static async Task<User> CreateCustomerAsync(string email, string username, string password, IPasswordService passwordService, IVerificationCodeGenerator verificationCodeGenerator)
-        => new(Guid.NewGuid(), Email.Initialize(email), Username.Initialize(username), passwordService.Hash(Password.Initialize(password)), DateTime.UtcNow, Roles.Customer, await verificationCodeGenerator.GenerateAsync());
+        => new(Guid.NewGuid(), Email.Initialize(email), Username.Initialize(username), passwordService.Hash(Password.Initialize(password)), DateTime.UtcNow, Roles.Client, await verificationCodeGenerator.GenerateAsync());
 
 }
