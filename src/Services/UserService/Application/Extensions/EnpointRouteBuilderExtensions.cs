@@ -7,6 +7,6 @@ public static class EnpointRouteBuilderExtensions
 {
     public static void MapEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapRegisterEndpoint();
+        app.MapSignUpEndpoint();
     }
 }
