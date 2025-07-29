@@ -1,3 +1,5 @@
+using IntegrationEvents.Customer;
+using MassTransit;
 using Officely.UserService.Api.Client;
 using Officely.UserService.Api.Client.Models.SignUp;
 
@@ -6,6 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost:5672", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+    });
+});
 
 var app = builder.Build();
 
@@ -18,15 +31,27 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/signup", async (string email, string password, string username, IUserService userService) =>
+app.MapPost("/signup", async (SignUpRequestDto request, IUserService userService, IPublishEndpoint publishEndpoint) =>
 {
 
-    return await userService.SignUp(new SignUpRequestDto
+    var response = await userService.SignUp(new SignUpRequestDto
     {
-        Email = email,
-        Password = password,
-        Username = username
+        Email = request.Email,
+        Password = request.Password,
+        Username = request.Username
     });
+
+    if (response is null)
+        return Results.BadRequest("Sign up failed.");
+
+    var integrationEvent = new CustomerRegisteredIntegrationEvent(
+        response.User.Id,
+        response.User.Email,
+        response.User.VerificationCode
+    );
+
+    await publishEndpoint.Publish(integrationEvent);
+    return Results.Ok(response);
 })
 .WithName("SignUp");
 
