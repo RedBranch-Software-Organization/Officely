@@ -13,6 +13,7 @@
     <Project Path="src/Services/StorageService/Api/Api.csproj" />
     <Project Path="src/Services/StorageService/Application/Application.csproj" />
     <Project Path="src/Services/StorageService/Domain/Domain.csproj" Id="385f6868-f403-4260-b0d6-f3e87ffdb0cd" />
+    <Project Path="src/services/StorageService/Infrastructure/Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/services/UserService/">
     <Project Path="src/services/UserService/Api/Api.csproj" />
