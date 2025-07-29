@@ -10,17 +10,21 @@ public class StorageItem : Entity<Guid>
     public Guid AuthorId { get; set; }
     public StorageItemType Type { get; set; }
 
-    private StorageItem(Guid id, string name, Guid? parentId, Guid authorId, StorageItemType type) : base(id)
+    private readonly List<StorageItem> _children;
+    public IReadOnlyCollection<StorageItem> Children => _children.AsReadOnly();
+
+    private StorageItem(Guid id, string name, Guid? parentId, Guid authorId, StorageItemType type, List<StorageItem> children) : base(id)
     {
         ParentId = parentId;
         AuthorId = authorId;
         Name = name;
         Type = type;
+        _children = children;
     }
 
-    public static StorageItem Initialize(Guid id, string name, Guid? parentId, Guid authorId, StorageItemType type)
-        => new(id, name, parentId, authorId, type);
+    public static StorageItem Initialize(Guid id, string name, Guid? parentId, Guid authorId, StorageItemType type, List<StorageItem> children)
+        => new(id, name, parentId, authorId, type, children);
 
     public static StorageItem CreateCustomerDirectory(Guid authorId)
-        => new(Guid.NewGuid(), authorId.ToString().ToUpper(), null, authorId, StorageItemType.Directory);
+        => new(Guid.NewGuid(), authorId.ToString().ToUpper(), null, authorId, StorageItemType.Directory, []);
 }

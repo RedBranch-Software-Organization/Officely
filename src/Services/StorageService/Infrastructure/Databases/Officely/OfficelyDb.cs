@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using RB.SharedKernel.MongoDb.Extensions;
 
-namespace Officely.UserService.Infrastructure.Databases.Officely;
+namespace Officely.StorageService.Infrastructure.Databases.Officely;
 
 public class OfficelyDb
 {
@@ -12,16 +12,17 @@ public class OfficelyDb
     private OfficelyDb(IConfiguration configuration)
     {
         var officelyDbConnectionString = configuration.GetSection("MongoDbConnectionStrings").GetSection(NAME);
+
         string? connectionString = officelyDbConnectionString["ConnectionString"];
         if (string.IsNullOrWhiteSpace(connectionString))
             throw new ArgumentException("Connection string " + NAME + " is not configured.");
 
-        MongoClient mongoClient = new(connectionString);
+        MongoClient mongoClient = new MongoClient(connectionString);
         Database = mongoClient.GetDatabase(officelyDbConnectionString["DbName"]);
     }
 
     private async Task InitializeAsync()
-        => await Database.CreateCollectionIfNotExistsAsync(Collections.Users.Name);
+        => await Database.CreateCollectionIfNotExistsAsync(Collections.StorageItems.Name);
 
     public static async Task<OfficelyDb> InitializeAsync(IConfiguration configuration, bool initialize = true)
     {
