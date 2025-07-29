@@ -1,7 +1,8 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/Apps/" />
-  <Folder Name="/src/Apps/Officely/">
+  <Folder Name="/src/Apps/ClientPortal/">
+    <Project Path="src/Apps/ClientPortal/App/App.csproj" />
     <Project Path="src/Apps/Officely/Api/Api.csproj" />
   </Folder>
   <Folder Name="/src/BuildingBlocks/">

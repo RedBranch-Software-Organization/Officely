@@ -1,4 +1,4 @@
-using App.Components;
+using Officely.ClientPortal.App.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

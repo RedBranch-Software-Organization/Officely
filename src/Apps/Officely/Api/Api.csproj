@@ -3,8 +3,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>Officely.Api</AssemblyName>
-    <RootNamespace>Officely.Api</RootNamespace>
+    <AssemblyName>Officely.ClientPortal.Api</AssemblyName>
+    <RootNamespace>Officely.ClientPortal.Api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
