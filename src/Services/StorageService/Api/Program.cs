@@ -2,7 +2,10 @@ using Officely.StorageService.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
 await builder.Services.AddApplicationAsync(builder.Configuration);
 
 

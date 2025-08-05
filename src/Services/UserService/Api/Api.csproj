@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>8deed5d3-df04-4031-8577-184afdc600fe</UserSecretsId>
+    <AssemblyName>Officely.CodeService.Api</AssemblyName>
+    <RootNamespace>Officely.CodeService.Api</RootNamespace>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..\..</DockerfileContext>
   </PropertyGroup>

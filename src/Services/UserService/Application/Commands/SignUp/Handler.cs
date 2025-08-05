@@ -9,7 +9,7 @@ public class Handler(IUserRepository userRepository, IPasswordService passwordSe
 {
     public async Task<Result> Handle(Command request, CancellationToken cancellationToken)
     {
-        var user = await User.CreateCustomerAsync(request.Email, request.Username, request.Password, passwordService, verificationCodeGenerator);
+        var user = await User.CreateClientAsync(request.Email, request.Username, request.Password, passwordService, verificationCodeGenerator);
         var addedUser = await userRepository.AddAsync(user);
         return new(new SignUpUser()
         {

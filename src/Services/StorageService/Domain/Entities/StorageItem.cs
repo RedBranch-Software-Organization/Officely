@@ -25,6 +25,6 @@ public class StorageItem : Entity<Guid>
     public static StorageItem Initialize(Guid id, string name, Guid? parentId, Guid authorId, StorageItemType type, List<StorageItem> children)
         => new(id, name, parentId, authorId, type, children);
 
-    public static StorageItem CreateCustomerDirectory(Guid authorId)
+    public static StorageItem CreateClientDirectory(Guid authorId)
         => new(Guid.NewGuid(), authorId.ToString().ToUpper(), null, authorId, StorageItemType.Directory, []);
 }

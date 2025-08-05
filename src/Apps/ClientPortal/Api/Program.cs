@@ -1,4 +1,4 @@
-using IntegrationEvents.Customer;
+using IntegrationEvents.Client;
 using MassTransit;
 using Officely.UserService.Api.Client;
 using Officely.UserService.Api.Client.Extensions;
@@ -48,7 +48,7 @@ app.MapPost("/signup", async (SignUpRequestDto request, IUserService userService
     if (response is null)
         return Results.BadRequest("Sign up failed.");
 
-    var integrationEvent = new CustomerRegisteredIntegrationEvent(
+    var integrationEvent = new ClientRegisteredIntegrationEvent(
         response.User.Id,
         response.User.Email,
         response.User.VerificationCode

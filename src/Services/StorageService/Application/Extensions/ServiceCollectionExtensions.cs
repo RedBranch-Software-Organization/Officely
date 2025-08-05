@@ -11,10 +11,10 @@ public static class ServiceCollectionExtensions
     public static async Task AddApplicationAsync(this IServiceCollection services, IConfiguration configuration)
     {
         await services.AddInfrastructureAsync(configuration);
-        //services.AddTransient<IConsumer, CustomerRegisteredConsumer>();
+        //services.AddTransient<IConsumer, ClientRegisteredConsumer>();
         services.AddMassTransit(x =>
         {
-            x.AddConsumer<CustomerRegisteredConsumer>();
+            x.AddConsumer<ClientRegisteredConsumer>();
 
             x.UsingRabbitMq((context, cfg) =>
             {
@@ -24,9 +24,9 @@ public static class ServiceCollectionExtensions
                     h.Password("guest");
                 });
 
-                cfg.ReceiveEndpoint("customer-registered-consumer", e =>
+                cfg.ReceiveEndpoint("Client-registered-consumer", e =>
                 {
-                    e.ConfigureConsumer<CustomerRegisteredConsumer>(context);
+                    e.ConfigureConsumer<ClientRegisteredConsumer>(context);
                 });
             });
         });
