@@ -1,5 +1,5 @@
-using IntegrationEvents.Client;
 using MassTransit;
+using Officely.IntegrationEvents.Client;
 using Officely.UserService.Api.Client;
 using Officely.UserService.Api.Client.Extensions;
 using Officely.UserService.Api.Client.Models.SignUp;
