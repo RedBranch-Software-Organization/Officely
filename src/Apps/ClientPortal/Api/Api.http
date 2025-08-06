@@ -1,0 +1,18 @@
+@Api_HostAddress = http://localhost:5067
+@Password = zaq1@WSX
+@Tester_No = 1
+
+### Sign Up 
+
+POST {{Api_HostAddress}}/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Email": "test{{Tester_No}}@gmail.com",
+  "Password": "{{Password}}",
+  "Username": "test{{Tester_No}}"
+}
+
+###
+

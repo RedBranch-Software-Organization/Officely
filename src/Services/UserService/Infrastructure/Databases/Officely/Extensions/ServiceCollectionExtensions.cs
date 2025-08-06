@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
 {
     public static async Task AddOfficelyDbAsync(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddSingleton<OfficelyDb>(await OfficelyDb.InitializeAsync(configuration, false));
+        services.AddSingleton(await OfficelyDb.InitializeAsync(configuration, false));
         services.AddTransient<IUserRepository, UserRepository>();
     }
 }

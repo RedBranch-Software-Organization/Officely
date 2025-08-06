@@ -11,14 +11,13 @@ public class OfficelyDb
     //ToDo: Remove using in line with MongoClient from GetMongoDatabase in RB.SharedKernel.MongoDb.Extensions.ConfigurationExtensions
     private OfficelyDb(IConfiguration configuration)
     {
-        string? connectionString = configuration.GetConnectionString(NAME);
+        var officelyDbConnectionString = configuration.GetSection("MongoDbConnectionStrings").GetSection(NAME);
+        string? connectionString = officelyDbConnectionString["ConnectionString"];
         if (string.IsNullOrWhiteSpace(connectionString))
-        {
             throw new ArgumentException("Connection string " + NAME + " is not configured.");
-        }
 
-        MongoClient mongoClient = new MongoClient(connectionString);
-        Database = mongoClient.GetDatabase(NAME);
+        MongoClient mongoClient = new(connectionString);
+        Database = mongoClient.GetDatabase(officelyDbConnectionString["DbName"]);
     }
 
     private async Task InitializeAsync()

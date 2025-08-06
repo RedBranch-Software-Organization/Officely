@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Officely.UserService.Application.Commands.Register;
+namespace Officely.UserService.Application.Commands.SignUp;
 
 public class Validator : AbstractValidator<Command>
 {
